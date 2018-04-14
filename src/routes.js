@@ -1,11 +1,20 @@
-import App from './App.js';
-import App1 from './App.1.js';
+import React from 'react';
+import Loadable from 'react-loadable';
+
+function loadableHandler(componentLoad) {
+    return Loadable({
+        loader: componentLoad,
+        loading: () => <div></div>
+    });
+}
+const App = loadableHandler(() => import('./App.js'));
+const home = loadableHandler(() => import('./pages/home'));
 
 module.exports = [{
     path: '/',
     component: App,
     routes: [{
         path: '/test',
-        component: App1
+        component: home
     }]
 }];

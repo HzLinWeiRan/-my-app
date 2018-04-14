@@ -1,6 +1,6 @@
-# webpack-vuex-project
+# react-web
 
-> A Vue.js project 基于cli按个人需求进行优化，满足基本前端开发 简单实例 http://106.14.185.90/#/
+> react, webpack构建
 
 ## 项目结构 ##
 
@@ -126,10 +126,8 @@ module.exports = {
 所有我们在代码中统一使用router按需加载配置，在`routes.js`添加page使用如下方式
 ``` bash
 {
-  path: '/hello',
-  component: function(resolve){
-    require(['./pages/Hello'], resolve);
-  }
+    path: '/',
+    component: loadableHandler(() => import('./pages/home'))
 }
 ```
 命令生成page，routes会自动加入该配置
@@ -140,20 +138,17 @@ module.exports = {
 
 ## 开发所需技术
 
-* vue https://cn.vuejs.org/v2/api vue
-* vuex https://vuex.vuejs.org/zh-cn/ vue状态管理框架
-* vux https://vux.li/#/ vue样式库
-* vue-router vue单页面开发框架
+* react
+* redux
+* vux
+* react-router
 * axios 
 * sass
 
-## vue-i18n国际化
+## react-i18n国际化
 
 项目已添加国际支持 <br/>
-详细情况 http://kazupon.github.io/vue-i18n/en/ 
-
-## vux ui库主题颜色修改 
-`src/styles/theme.less`
+详细情况 https://github.com/i18next/react-i18next
 
 ``` bash
 
@@ -161,18 +156,5 @@ module.exports = {
 @button-primary-active-bg-color: #da2f2f;
 
 ```
-
-
-## 页面切换动画
-
-`/src/App.vue`
-
-```bash
-<transition name="move" >
-    <router-view></router-view>
-</transition>
-```
-name值 fade bounce move
-
 
 

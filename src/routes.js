@@ -8,9 +8,8 @@ function loadableHandler(componentLoad) {
     });
 }
 // const App = loadableHandler(() => import('./App.js'));
-const home = loadableHandler(() => import('./pages/home'));
 
 module.exports = [{
     path: '/',
-    component: home
+    component: loadableHandler(() => import('./pages/home'))
 }];

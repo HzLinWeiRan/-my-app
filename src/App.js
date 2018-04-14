@@ -1,6 +1,8 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { I18n } from 'react-i18next';
+import './i18n';
 import routes from './routes';
 import RouteWithSubRoutes from './route-with-sub-routes.js';
 // import ReactDom from 'react-dom';
@@ -30,14 +32,17 @@ class App extends React.PureComponent {
     render() {
         console.log(this);
         return (
-            <Router>
-                <div>
-                    <button onClick={() => { this.props.dispatch({ type: 'test' }); }}>
-                        {this.state.tt.test} {this.state.t2} {this.props.todos.id}
-                    </button>
-                    {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-                </div>
-            </Router>);
+            <I18n>
+                {(t, { i18n }) => (<Router>
+                    <div>
+                        {t('age.label')}
+                        <button onClick={() => { this.props.dispatch({ type: 'test' }); i18n.changeLanguage('zhCN'); }}>
+                            {this.state.tt.test} {this.state.t2} {this.props.todos.id}
+                        </button>
+                        {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+                    </div>
+                </Router>)}
+            </I18n>);
     }
 }
 

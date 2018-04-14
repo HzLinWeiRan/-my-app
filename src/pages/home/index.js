@@ -1,8 +1,15 @@
 import React from 'react';
+import { I18n } from 'react-i18next';
 // import ReactDom from 'react-dom';
 
 // console.log(styles);
 export default function App() {
     // const t2 = '123';
-    return (<div>12322222212</div>);
+    return (<I18n>
+        {(t, { i18n }) => (<div>
+            {t('home.label')}
+            {t('test.label')}
+            <button onClick={() => { i18n.changeLanguage('en'); }}>111</button>
+        </div>)}
+    </I18n>);
 }

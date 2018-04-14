@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { HashRouter as Router } from 'react-router-dom';
-import routes from './routes';
-import RouteWithSubRoutes from './route-with-sub-routes.js';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import App from './App.js';
+import reducers from './reducers';
 import apis from './fetch';
 // import './styles/testcss.css';
 
@@ -15,12 +16,12 @@ apis.list2({
     test: 1,
     test2: 2
 });
+
+const store = createStore(reducers);
+
 ReactDom.render(
-    <Router>
-        <div>
-            11
-            {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-        </div>
-    </Router>,
+    <Provider store={store}>
+        <App></App>
+    </Provider>,
     document.getElementById('app-box')
 );

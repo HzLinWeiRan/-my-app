@@ -7,14 +7,10 @@ function loadableHandler(componentLoad) {
         loading: () => <div></div>
     });
 }
-const App = loadableHandler(() => import('./App.js'));
+// const App = loadableHandler(() => import('./App.js'));
 const home = loadableHandler(() => import('./pages/home'));
 
 module.exports = [{
     path: '/',
-    component: App,
-    routes: [{
-        path: '/test',
-        component: home
-    }]
+    component: home
 }];

@@ -1,9 +1,11 @@
 import React from 'react';
-import t from './styles/App.scss';
+import { HashRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
+import routes from './routes';
 import RouteWithSubRoutes from './route-with-sub-routes.js';
 // import ReactDom from 'react-dom';
 
-export default class App extends React.PureComponent {
+class App extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,12 +28,28 @@ export default class App extends React.PureComponent {
         }, 1000);
     }
     render() {
-        const { routes } = this.props;
-        return (<div className={t.test} >
-            <button onClick={() => { this.updateTt(1); }}>
-                {this.state.tt.test} {this.state.t2}
-            </button>
-            {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-        </div>);
+        console.log(this);
+        return (
+            <Router>
+                <div>
+                    <button onClick={() => { this.props.dispatch({ type: 'test' }); }}>
+                        {this.state.tt.test} {this.state.t2} {this.props.todos.id}
+                    </button>
+                    {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+                </div>
+            </Router>);
     }
 }
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+    return state;
+}
+// Map Redux actions to component props
+// function mapDispatchToProps(dispatch) {
+//     return {
+//             onIncreaseClick: () => dispatch(increaseAction)
+//     }
+// }
+
+export default connect(mapStateToProps)(App);

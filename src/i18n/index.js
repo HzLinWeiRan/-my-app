@@ -1,8 +1,9 @@
 import i18next from 'i18next';
-import zhCN from './zhCN.js';
-import en from './en.js';
 import { reactI18nextModule } from 'react-i18next';
+import zhCN from './zh-CN.js';
+import en from './en.js';
 
+const lng = navigator.language || 'zh-CN';
 i18next
     .use(reactI18nextModule)
     .init({
@@ -11,23 +12,10 @@ i18next
             escapeValue: false,
         },
         fallbackLng: 'zh-CN',
-        lng: 'zh-CN', // 'en' | 'es'
+        lng, // 'en' | 'zh-CN'
         resources: {
-            'zh-CN': {
-                translation: {
-                    age: { label: '年龄', },
-                    home: { label: '首页', },
-                    name: { label: '名字', },
-                    test: { label: '测试', },
-                },
-            },
-            en: {
-                translation: {
-                    age: { label: 'Age', },
-                    home: { label: 'Home', },
-                    name: { label: 'Name', },
-                },
-            },
+            'zh-CN': zhCN,
+            en
         },
     }, (err, t) => {
         if (err) {

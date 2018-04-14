@@ -36,7 +36,7 @@ class App extends React.PureComponent {
                 {(t, { i18n }) => (<Router>
                     <div>
                         {t('age.label')}
-                        <button onClick={() => { this.props.dispatch({ type: 'test' }); i18n.changeLanguage('zhCN'); }}>
+                        <button onClick={() => { this.props.dispatch({ type: 'test' }); i18n.changeLanguage('zh-CN'); }}>
                             {this.state.tt.test} {this.state.t2} {this.props.todos.id}
                         </button>
                         {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}

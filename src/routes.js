@@ -2,10 +2,10 @@ import App from './App.js';
 import App1 from './App.1.js';
 
 module.exports = [{
-    path: '/test2',
+    path: '/',
     component: App,
     routes: [{
-        path: '/test2/test',
+        path: '/test',
         component: App1
     }]
 }];

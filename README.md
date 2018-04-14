@@ -145,7 +145,7 @@ module.exports = {
 * vux https://vux.li/#/ vue样式库
 * vue-router vue单页面开发框架
 * axios 
-* less
+* sass
 
 ## vue-i18n国际化
 

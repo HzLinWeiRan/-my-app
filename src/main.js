@@ -5,7 +5,7 @@ import routes from './routes';
 import RouteWithSubRoutes from './route-with-sub-routes.js';
 // import './styles/testcss.css';
 
-
+console.log(process.env);
 ReactDom.render(
     <Router>
         <div>

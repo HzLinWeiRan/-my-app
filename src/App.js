@@ -7,6 +7,19 @@ import routes from './routes';
 import RouteWithSubRoutes from './route-with-sub-routes.js';
 // import ReactDom from 'react-dom';
 
+function add() {
+    return {
+        type: 'test',
+        id: 300
+    };
+}
+
+function ifAdd() {
+    return async (dispatch) => {
+        dispatch(add());
+    };
+}
+
 class App extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -18,14 +31,18 @@ class App extends React.PureComponent {
         };
         this.updateTt = this.updateTt.bind(this);
     }
-    updateTt(d) {
-        this.state.tt.test = 444;
-        this.state.t2 = 333;
+    async updateTt() {
         setTimeout(() => {
+            this.state = {
+                tt: {
+                    test: 222
+                },
+                t2: 555
+            };
+            console.log(this);
             console.log(this.state);
-            console.log(d);
             this.setState({
-                test: d
+                ...this.state
             });
         }, 1000);
     }
@@ -36,7 +53,10 @@ class App extends React.PureComponent {
                 {(t, { i18n }) => (<Router>
                     <div>
                         {t('age.label')}
-                        <button onClick={() => { this.props.dispatch({ type: 'test' }); i18n.changeLanguage('zh-CN'); }}>
+                        <button onClick={() => { this.updateTt(); this.props.dispatch(ifAdd()); i18n.changeLanguage('zh-CN'); }}>
+                            {this.state.tt.test} {this.state.t2} {this.props.todos.id}
+                        </button>
+                        <button onClick={this.updateTt}>
                             {this.state.tt.test} {this.state.t2} {this.props.todos.id}
                         </button>
                         {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}

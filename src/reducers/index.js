@@ -7,6 +7,18 @@ const initialState = {
 };
 
 function todos(state = initialState, action) {
+    console.log(action);
+    switch (action.type) {
+    case 'test':
+        return {
+            ...state,
+            id: action.id
+        };
+    default:
+        return state;
+    }
+}
+function todos2(state = initialState, action) {
     switch (action.type) {
     case 'test':
         return {
@@ -18,7 +30,8 @@ function todos(state = initialState, action) {
     }
 }
 const rootReducer = combineReducers({
-    todos
+    todos,
+    todos2
 });
 
 export default rootReducer;

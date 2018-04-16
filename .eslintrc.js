@@ -20,6 +20,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-console': 0,
     indent: [2, 4],
+    'linebreak-style': 0,
     'react/jsx-indent': [2, 4],
     'react/self-closing-comp': 0,
     'react/jsx-filename-extension': [1, { "extensions": ['.js', '.jsx'] }],

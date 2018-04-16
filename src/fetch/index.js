@@ -24,7 +24,7 @@ instance.interceptors.response.use((res) => {
     if (!res) {
         return Promise.reject(res);
     }
-    return res;
+    return res.data;
 }, error => Promise.reject(error));
 
 // 创建单个请求
@@ -33,12 +33,18 @@ function createApi(config) {
         if (config.method === 'get') {
             return instance({
                 ...config,
-                params: data
+                params: {
+                    ...data,
+                    lang: localStorage.lang
+                }
             });
         }
         return instance({
             ...config,
-            data
+            data: {
+                ...data,
+                lang: localStorage.lang
+            }
         });
     };
 }

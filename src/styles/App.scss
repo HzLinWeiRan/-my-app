@@ -1,7 +1,16 @@
-:global(body) {
-    background: #fff;
+body {
+    margin: 0;
+    padding: 0;
 }
-
-.test {
-    color: green;
+html, body {
+    height: 100%;
+    font-family: 'Helvetica Neue',Tahoma,Arial,PingFangSC-Regular,'Hiragino Sans GB','Microsoft Yahei',sans-serif;
+}
+#root {
+    max-width: 7.5rem;
+    margin: auto;
+}
+h1, h2, h3, h4,  h5, h6, p {
+    padding: 0;
+    margin: 0;
 }

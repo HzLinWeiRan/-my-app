@@ -1,0 +1,45 @@
+.newsSwipe {
+    img {
+        width: 100%;
+        display: block;
+    }
+    .swipeContent {
+        padding: 0 .3rem;
+        h3 {
+            padding: 0;
+            margin: 0;
+            padding-top: .48rem;
+            font-size: .48rem;
+            line-height: 1;
+            color: #17213C;
+        }
+        >p {
+            font-size: .3rem;
+            line-height: .35rem;
+            font-weight: 100;
+            opacity: 0.8;
+            color: #5F6167;
+            padding: .27rem 0 .96rem;
+        }
+    }
+}
+.swiperPos {
+    text-align: center;
+    font-size: 0;
+    span {
+        height: .12rem;
+        width: .12rem;
+        display: inline-block;
+        border-radius: 50%;
+        background: #D8D8D8;
+        opacity: .41;
+        &+span {
+            margin-left: .2rem; 
+        }
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
+

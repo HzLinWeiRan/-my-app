@@ -1,16 +1,17 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 
-function loadableHandler(componentLoad) {
+// 实现页面组件按需引入
+export default function loadableHandler(componentLoad) {
     return Loadable({
         loader: componentLoad,
         loading: () => <div></div>
     });
 }
-// const App = loadableHandler(() => import('./App.js'));
 
 module.exports = [{
-    path: '/home',
+    path: '/',
+    exact: true,
     component: loadableHandler(() => import('./pages/home'))
 }, {
     path: '/news',

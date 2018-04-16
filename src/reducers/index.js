@@ -1,37 +1,25 @@
 import { combineReducers } from 'redux';
+import apis from '@/fetch';
 
+// 初始化状态
 const initialState = {
-    text: 'Use Redux',
-    completed: false,
-    id: 0
+    apis
 };
 
-function todos(state = initialState, action) {
+function root(state = initialState, action) {
     console.log(action);
     switch (action.type) {
-    case 'test':
+    case 'CHANGE_LANG':
         return {
-            ...state,
-            id: action.id
+            lang: action.payload
         };
     default:
         return state;
     }
 }
-function todos2(state = initialState, action) {
-    switch (action.type) {
-    case 'test':
-        return {
-            ...state,
-            id: state.id + 1
-        };
-    default:
-        return state;
-    }
-}
+
 const rootReducer = combineReducers({
-    todos,
-    todos2
+    root
 });
 
 export default rootReducer;

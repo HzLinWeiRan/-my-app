@@ -30,6 +30,7 @@ module.exports = {
     'react/jsx-closing-tag-location': 0,
     'react/prop-types': 0,
     'react/jsx-wrap-multilines': 0,
+    'react/no-danger': 0,
     'import/extensions': 0,
     'import/no-unresolved': 0,
     'comma-dangle': 0

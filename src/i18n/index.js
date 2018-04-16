@@ -3,7 +3,9 @@ import { reactI18nextModule } from 'react-i18next';
 import zhCN from './zh-CN.js';
 import en from './en.js';
 
-const lng = navigator.language || 'zh-CN';
+const lng = localStorage.lang || navigator.language || 'zh-CN';
+localStorage.lang = lng;
+
 i18next
     .use(reactI18nextModule)
     .init({

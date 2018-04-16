@@ -4,5 +4,7 @@ export default {
         home: { label: '首页', },
         name: { label: '名字', },
         test: { label: '测试', },
+        news: {
+        }
     }
 };

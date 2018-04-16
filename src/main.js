@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 import './i18n';
 import App from './App.js';
 import reducers from './reducers';
-import apis from './fetch';
 // import './styles/testcss.css';
 
 // rem 定义根节点font-size
@@ -17,15 +16,14 @@ import apis from './fetch';
         document.documentElement.style.fontSize = `${w / cw * 100}px`;
     }
     setRootFontSize();
-    window.onreset = setRootFontSize;
+    window.onresize = setRootFontSize;
 }(750));
-window.fetchApis = apis;
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDom.render(
     <Provider store={store}>
-        <App></App>
+        <App />
     </Provider>,
     document.getElementById('root')
 );

@@ -1,8 +1,9 @@
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { I18n } from 'react-i18next';
 // import './i18n';
+import './styles/App.scss';
 import routes from './routes';
 import RouteWithSubRoutes from './components/routeWithSubRoutes';
 // import ReactDom from 'react-dom';
@@ -23,12 +24,22 @@ import RouteWithSubRoutes from './components/routeWithSubRoutes';
 // function Layout() {
 //     return (<div></div>);
 // }
-
+// class App extends React.PureComponent {
+//     render() {
+//         return (
+//             <div>
+//                 {this.props.children}
+//             </div>
+//         );
+//     }
+// }
+console.log(Redirect);
 function App() {
     return (<Router>
-        <div>
+        <Switch>
             {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-        </div>
+            <Redirect from="/news" to="/news/features" />
+        </Switch>
     </Router>);
 }
 

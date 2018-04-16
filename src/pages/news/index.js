@@ -73,16 +73,21 @@ class News extends Component {
         }
     }
     render() {
-        const png = 'http://img1.imgtn.bdimg.com/it/u=3115593769,3840792280&fm=27&gp=0.jpg';
         return (<div style={{ fontSize: 0 }}>
             {this.state.topNews ? <ReactSwipe {...this.state.swiperAttrs} >
-                {this.state.topNews.map((item, i) => <div key={i}>
-                    <img src={png} alt="t" />
-                    <div className={newsStyles.swipeContent}>
-                        <h3>{item.title}</h3>
-                        <p dangerouslySetInnerHTML={{ __html: item.subTitle }} />
-                    </div>
-                </div>)}
+                {this.state.topNews.map((item, i) => {
+                    const imgStyle = {
+                        background: `url(${item.picUrl}) no-repeat center`,
+                        backgroundSize: 'cover'
+                    };
+                    return <a href={item.actionUrl}><div key={i}>
+                        <div className={newsStyles.bgImg} style={imgStyle}></div>
+                        <div className={newsStyles.swipeContent}>
+                            <h3>{item.title}</h3>
+                            <p dangerouslySetInnerHTML={{ __html: item.subTitle }} />
+                        </div>
+                    </div></a>;
+                })}
             </ReactSwipe> : ''}
             <div className={newsStyles.swiperPos}>
                 {this.getPosTags()}

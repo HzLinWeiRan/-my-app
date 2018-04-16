@@ -1,0 +1,25 @@
+{
+    "code": 0,
+    "message": null,
+    "data": {
+        "pageNo": 1,
+        "pageSize": 3,
+        "totalSize": 1,
+        "data": [{
+            "id": 1,
+            "gmtCreate": "2018-03-20 16:01:57",
+            "gmtModified": "2018-03-20 16:01:57",
+            "title": "测试",
+            "subTitle": "子标题",
+            "picUrl": "www.google.com",
+            "actionUrl": "www.google.com",
+            "content": "ww",
+            "newsType": 1,
+            "homepageType": 1,
+            "newsOrder": 1,
+            "status": 1,
+            "ext": null
+        }]
+    },
+    "success": true
+}

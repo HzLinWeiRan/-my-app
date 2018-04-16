@@ -9,7 +9,7 @@ export default function App() {
     // const t2 = '123';
     return (<I18n>
         {(t, { i18n }) => (<div className={styles.test}>
-            {t('home.label')}
+            {t('home.label')} 222
             {t('test.label')}
             <button onClick={() => { i18n.changeLanguage('en'); }}>111</button>
         </div>)}

@@ -1,0 +1,39 @@
+{
+    "code": 0,
+    "message": null,
+    "data": {
+        "leftNews": {
+            "id": 2,
+            "gmtCreate": "2018-03-21 13:58:36",
+            "gmtModified": "2018-03-23 11:39:46",
+            "title": "test1",
+            "subTitle": "<p>test ennnnn</p>",
+            "picUrl": "https://s3.us-east-2.amazonaws.com/fortuna-resource/20180321135648020c8fd0005yXe3qgy1fpeiumworsj30rs0k20vk.jpg",
+            "actionUrl": "www.fota.com",
+            "content": "<p>test c</p>",
+            "newsType": 3,
+            "locale": "en",
+            "homepageType": 1,
+            "newsOrder": 2,
+            "status": 1,
+            "ext": null
+        },
+        "rightNews": [{
+            "id": 3,
+            "gmtCreate": "2018-03-23 13:16:02",
+            "gmtModified": "2018-03-23 13:16:02",
+            "title": "test right news",
+            "subTitle": "<p>test right news...</p>",
+            "picUrl": null,
+            "actionUrl": "www.fota.com",
+            "content": null,
+            "newsType": 2,
+            "locale": "en",
+            "homepageType": 2,
+            "newsOrder": 3,
+            "status": 1,
+            "ext": null
+        }]
+    },
+    "success": true
+}

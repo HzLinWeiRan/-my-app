@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import './i18n';
 import App from './App.js';
 import reducers from './reducers';
 import apis from './fetch';
@@ -18,15 +19,7 @@ import apis from './fetch';
     setRootFontSize();
     window.onreset = setRootFontSize;
 }(750));
-console.log(apis);
-apis.list({
-    test: 1,
-    test2: 2
-});
-apis.list2({
-    test: 1,
-    test2: 2
-});
+window.fetchApis = apis;
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
@@ -34,5 +27,5 @@ ReactDom.render(
     <Provider store={store}>
         <App></App>
     </Provider>,
-    document.getElementById('app-box')
+    document.getElementById('root')
 );

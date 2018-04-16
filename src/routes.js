@@ -10,6 +10,13 @@ function loadableHandler(componentLoad) {
 // const App = loadableHandler(() => import('./App.js'));
 
 module.exports = [{
-    path: '/',
+    path: '/home',
     component: loadableHandler(() => import('./pages/home'))
+}, {
+    path: '/news',
+    component: loadableHandler(() => import('./pages/news')),
+    routes: [{
+        path: '/news/features',
+        component: loadableHandler(() => import('./pages/news/features')),
+    }]
 }];

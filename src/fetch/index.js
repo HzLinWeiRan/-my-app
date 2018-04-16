@@ -3,7 +3,7 @@ import api from './api';
 
 // 公共参数配置
 const instance = axios.create({
-    baseURL: '/',
+    baseURL: window.baseURL,
     timeout: 10000,
     // headers: { 'content-type': 'application/x-www-form-urlencoded' },
     transformRequest: [(data) => {

@@ -8,6 +8,16 @@ import reducers from './reducers';
 import apis from './fetch';
 // import './styles/testcss.css';
 
+// rem 定义根节点font-size
+(function setFontSize(cw) {
+    function setRootFontSize() {
+        let w = document.documentElement.getBoundingClientRect().width;
+        w = w > cw ? cw : w;
+        document.documentElement.style.fontSize = `${w / cw * 100}px`;
+    }
+    setRootFontSize();
+    window.onreset = setRootFontSize;
+}(750));
 console.log(apis);
 apis.list({
     test: 1,
